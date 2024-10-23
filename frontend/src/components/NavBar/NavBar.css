@@ -1,0 +1,22 @@
+.navDiv {
+    background-color: #282c34;
+    padding: 20px;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    width: 80%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+  }
+  
+  .navLogo{
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  .navText {
+    margin: 10px 0 0;
+    font-size: 1.2rem;
+    color: #61dafb;
+  }
+  
