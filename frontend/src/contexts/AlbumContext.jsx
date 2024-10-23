@@ -1,25 +1,20 @@
-import React, { createContext, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import React, { createContext, useEffect, useReducer, useState } from "react";
+import { AlbumReducer } from "../reducers/albumReducer";
 
 const AlbumContext = createContext();
 
 const AlbumContextProvider = (props) => {
-  const [albumList, setAlbumList] = useState([
-    { title: "Stankonia", artiste: "Outkast", id: "1" },
-    { title: "Stillmatic", artiste: "Nas", id: "2" },
-    { title: "Graduation", artiste: "Kanye West", id: "3" },
-  ]);
-  4;
-  const addAlbum = (title, artiste) => {
-    setAlbumList([...albumList, { title, artiste, id: uuidv4() }]);
-  };
+  const [albumList, dispatch] = useReducer(AlbumReducer, [], () => {
+    const localData = localStorage.getItem("albums");
+    return localData ? JSON.parse(localData) : [];
+  });
 
-  const removeAlbum = (id) => {
-    setAlbumList(albumList.filter((item) => item.id !== id));
-  };
+  useEffect(() => {
+    localStorage.setItem("albums", JSON.stringify(albumList));
+  }, [albumList]);
 
   return (
-    <AlbumContext.Provider value={{ albumList, addAlbum, removeAlbum }}>
+    <AlbumContext.Provider value={{ albumList, dispatch }}>
       {props.children}
     </AlbumContext.Provider>
   );

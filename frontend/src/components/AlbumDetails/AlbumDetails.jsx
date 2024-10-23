@@ -5,7 +5,7 @@ import { AlbumContext } from "../../contexts/AlbumContext";
 
 const AlbumDetails = () => {
   const { id } = useParams();
-  const { albumList, removeAlbum } = useContext(AlbumContext);
+  const { albumList, dispatch } = useContext(AlbumContext);
 
   const artisteAlbum = albumList.find((item) => item.id === id);
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ const AlbumDetails = () => {
           <p>Artiste: {artisteAlbum.artiste}</p>
           <button
             onClick={() => {
-              removeAlbum(artisteAlbum.id);
+              dispatch({ type: "REMOVE_ALBUM", id: artisteAlbum.id }); // Corrected here
               navigate("/");
             }}
           >

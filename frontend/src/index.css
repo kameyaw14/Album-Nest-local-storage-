@@ -1,0 +1,32 @@
+
+  /* button.css */
+
+/* Common button styles */
+button {
+    padding: 0.8rem 1.2rem; /* Vertical and horizontal padding */
+    font-size: 1rem; /* Font size */
+    color: #ffffff; /* Text color */
+    background-color: #007bff; /* Default background color */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transition effects */
+  }
+  
+  /* Button hover effect */
+  button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+  }
+  
+  /* Button active effect */
+  button:active {
+    transform: translateY(1px); /* Pressed effect */
+  }
+  
+  /* Disabled button style */
+  button:disabled {
+    background-color: #ccc; /* Grey background for disabled */
+    cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+  }
+  
